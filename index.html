@@ -1,0 +1,54 @@
+<title>New Millenium Calendar</title>
+<link rel="stylesheet" href="css/simplyCountdown.theme.default.css"/>
+<script src="dist/simplyCountdown.min.js"></script>
+<h1>New Millenium Calendar</h1>
+<h4>On November 5 2024, the U.S. will have a presidential election.</h4>
+<div id="election"></div>
+<h4>In 2029, there will be a total lunar eclipse. With an umbral eclipse magnitude of 1.84362, it will be the largest total lunar eclipse of the 21st century.</h4>
+<div id="largelunar"></div>
+<h4>On 1 July 2047, the present "one country, two systems" arrangement in Hong Kong is scheduled to end, as it was guaranteed for 50 years starting from July 1, 1997, provided under the Hong Kong Basic Law.</h4>
+<div id="hongkong"></div>
+<h4>In 2050, the Three-North Shelter Forest Program is expected to be completed.</h4>
+<div id="threenorth"></div>
+<h4>In 28 July 2061, Halley's Comet will enter the inner solar system and is expected to be visible from Earth again after its last perihelion in 1986.</h4>
+<div id="halleyscomet"></div>
+<h4>In 2847, the St. Michael's Catholic Cemetery (Happy Valley) in Hong Kong lease on Wan Chai's Saint Fulan gentleman street will end after a 999-year lease, assuming no legal status changes before that date.</h4>
+<div id="happyvalley"></div>
+<h4>Later, it will be 3000.</h4>
+<div id="threethousand"></div>
+
+<script>
+    const words = { //words displayed into the countdown
+        days: { singular: ' ' + 'day', plural: ' ' + 'days' },
+        hours: { singular: ' ' + 'hour', plural: ' ' + 'hours' },
+        minutes: { singular: ' ' + 'minute', plural: ' ' + 'minutes' },
+        seconds: { singular: ' ' + 'second', plural: ' ' + 'seconds' }
+    }
+    simplyCountdown('#hongkong', {
+        year: 2047, // required
+        month: 7, // required
+        day: 1, // required
+        hours: 0, // Default is 0 [0-23] integer
+        minutes: 0, // Default is 0 [0-59] integer
+        seconds: 0, // Default is 0 [0-59] integer
+        words,
+        plural: true, //use plurals
+        inline: false, //set to true to get an inline basic countdown like : 24 days, 4 hours, 2 minutes, 5 seconds
+        inlineClass: 'simply-countdown-inline', //inline css span class in case of inline = true
+        // in case of inline set to false
+        enableUtc: false, //Use UTC or not - default : false
+        onEnd: function() { return; }, //Callback on countdown end, put your own function here
+        refresh: 1000, // default refresh every 1s
+        sectionClass: 'simply-section', //section css class
+        amountClass: 'simply-amount', // amount css class
+        wordClass: 'simply-word', // word css class
+        zeroPad: false,
+        countUp: false
+    });
+    simplyCountdown('#threethousand', { year: 3000, month: 1, day: 1, words })
+    simplyCountdown('#largelunar', { year: 2029, month: 7, day: 26, words })
+    simplyCountdown('#threenorth', { year: 2050, month: 1, day: 1, words })
+    simplyCountdown('#halleyscomet', { year: 2061, month: 7, day: 28, words })
+    simplyCountdown('#happyvalley', { year: 2847, month: 1, day: 7, words })
+    simplyCountdown('#election', { year: 2024, month: 11, day: 5, words })
+</script>
